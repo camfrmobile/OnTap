@@ -18,9 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     
-    var timerGreen: Timer?
-    var timerYellow: Timer?
-    var timerRed: Timer?
+    var timer: Timer?
     let timeGreen = 5
     let timeYellow = 3
     let timeRed = 7
@@ -53,14 +51,14 @@ class ViewController: UIViewController {
     
     func setupTimerGreen() {
         var number = timeGreen
-        timerGreen = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.turnOffAll()
             self.greenButton.backgroundColor = .green
             self.timeLabel.text = "\(number)"
             number -= 1
             if number < 0 {
                 self.isRun = false
-                self.timerGreen?.invalidate()
+                self.timer?.invalidate()
                 self.setupTimerYellow()
             }
         })
@@ -68,13 +66,13 @@ class ViewController: UIViewController {
     
     func setupTimerYellow() {
         var number = timeYellow
-        timerYellow = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.turnOffAll()
             self.yellowButton.backgroundColor = .yellow
             self.timeLabel.text = "\(number)"
             number -= 1
             if number < 0 {
-                self.timerYellow?.invalidate()
+                self.timer?.invalidate()
                 if self.isRun {
                     self.setupTimerGreen()
                 } else {
@@ -86,14 +84,14 @@ class ViewController: UIViewController {
     
     func setupTimerRed() {
         var number = timeRed
-        timerRed = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.turnOffAll()
             self.redButton.backgroundColor = .red
             self.timeLabel.text = "\(number)"
             number -= 1
             if number < 0 {
                 self.isRun = true
-                self.timerRed?.invalidate()
+                self.timer?.invalidate()
                 self.setupTimerYellow()
             }
         })
