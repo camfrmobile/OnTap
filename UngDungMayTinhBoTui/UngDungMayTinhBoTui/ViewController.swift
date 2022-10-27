@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     var inputValue: Float = 0
     var inputText: String = ""
     var inputMath: String = ""
-    var isTheEnd = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,23 +31,19 @@ class ViewController: UIViewController {
         inputText += "\(number)"
         inputValue = Float(inputText) ?? 0
         showText(inputText)
-        isTheEnd = false
     }
     
     @IBAction func actionMathClick(_ sender: UIButton) {
-        if !isTheEnd {
-            Calculator()
-            isTheEnd = true
-        }
+        saveValue = Calculator()
+        
         highlightMath(sender)
         inputMath = sender.titleLabel?.text ?? ""
-        saveValue = inputValue
         inputText = ""
     }
     @IBAction func actionResult(_ sender: UIButton) {
         highlightMath(nil)
-        Calculator()
-        isTheEnd = true
+        saveValue = Calculator()
+        inputText = ""
     }
     
     @IBAction func actionClear(_ sender: UIButton?) {
@@ -56,12 +51,12 @@ class ViewController: UIViewController {
         saveValue = 0
         inputValue = 0
         inputText = ""
-        inputMath = ""
-        showText("")
+        inputMath = "+"
+        showText("0")
     }
     
-    func Calculator () {
-        var floatResult: Float = 0
+    func Calculator () -> Float {
+        var floatResult: Float
         switch inputMath {
         case "+":
             floatResult = saveValue + inputValue
@@ -72,17 +67,16 @@ class ViewController: UIViewController {
         case "/":
             if inputValue == 0 {
                 actionClear(nil)
-                showText("Lỗi!")
-                return
+                //showText("Lỗi!")
+                //return
             }
             floatResult = saveValue / inputValue
         default:
             floatResult = inputValue
             break
         }
-        inputText = ""
-        inputValue = floatResult
         showValue(floatResult)
+        return floatResult
     }
     
     func highlightMath(_ sender: UIButton?) {

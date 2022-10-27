@@ -1,0 +1,17 @@
+Bài tập logic
+
+In 1 ma trận 3 x 3 bất kì.
+Cộng 2 ma trận nxn bất kì (0 < n <= 5)
+Cho dãy số tự nhiên bất kỳ gồm n phần tử. Với mỗi phần tử thứ i, hãy tìm phần tử bên phải lớn hơn nó. Nếu không tồn tại, in ra -1.
+Một máy ATM hiện có n (n <= 30) tờ tiền có giá trị 50.000, 100.000, 200.000, 500.000. Hãy tìm cách trả ít tờ nhất với số tiền đúng bằng S nhập từ bàn phím (mỗi loại tiền có số lượng tờ khác nhau, tổng các tờ tiền = n). Trường hợp S nhập từ bàn phím không hợp lệ, hãy đưa ra thông báo.
+Bài tập giao diện
+
+Tạo một ứng dụng cho phép người dùng nhập vào các phép tính cơ bản (cộng, trừ, nhân, chia) và hiển thị ra kết quả sau khi tính.
+Tên gọii khác: Ứng dụng máy tính bỏ túi.
+Tạo một ứng dụng đèn giao thông, gồm 3 màu cơ bản (đỏ, xanh, vàng), với mỗi màu đèn có số thời gian đếm tương ứng.
+Quy định:
+
+Đèn tín hiệu phải bật từng màu riêng biệt, đèn này tắt mới được bật đèn kia lên, không được bật nhiều màu cùng một lúc.
+Khi chuyển từ xanh-đỏ và đỏ-xanh bắt buộc phải bật qua màu vàng, vì màu vàng đệm giữa 2 màu xanh đỏ.
+Nộp bài:
+Bài tập được đẩy lên github và nộp qua zalo (0968326697)
