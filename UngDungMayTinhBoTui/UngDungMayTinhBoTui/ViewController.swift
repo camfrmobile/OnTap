@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var inputValue: Float = 0
     var inputText: String = ""
     var inputMath: String = ""
+    var isResult: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,23 +28,33 @@ class ViewController: UIViewController {
 
     @IBAction func actionNumberClick(_ sender: UIButton) {
         highlightMath(nil)
+        if isResult {
+            actionClear(nil)
+        }
         let number = sender.titleLabel?.text ?? ""
         inputText += "\(number)"
         inputValue = Float(inputText) ?? 0
         showText(inputText)
+        isResult = false
     }
     
     @IBAction func actionMathClick(_ sender: UIButton) {
-        saveValue = Calculator()
-        
         highlightMath(sender)
+        if isResult {
+            
+        } else {
+            saveValue = Calculator()
+        }
+        
         inputMath = sender.titleLabel?.text ?? ""
         inputText = ""
+        isResult = false
     }
     @IBAction func actionResult(_ sender: UIButton) {
         highlightMath(nil)
         saveValue = Calculator()
         inputText = ""
+        isResult = true
     }
     
     @IBAction func actionClear(_ sender: UIButton?) {
@@ -52,6 +63,7 @@ class ViewController: UIViewController {
         inputValue = 0
         inputText = ""
         inputMath = "+"
+        isResult = false
         showText("0")
     }
     
