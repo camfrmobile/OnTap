@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         if isResult {
             actionClear(nil)
         }
-        let number = sender.titleLabel?.text ?? ""
+        let number = sender.currentTitle ?? ""
         inputText += "\(number)"
         inputValue = Float(inputText) ?? 0
         showText(inputText)
@@ -43,16 +43,16 @@ class ViewController: UIViewController {
         if isResult {
             
         } else {
-            saveValue = Calculator()
+            saveValue = calculator()
         }
         
-        inputMath = sender.titleLabel?.text ?? ""
+        inputMath = sender.currentTitle ?? ""
         inputText = ""
         isResult = false
     }
     @IBAction func actionResult(_ sender: UIButton) {
         highlightMath(nil)
-        saveValue = Calculator()
+        saveValue = calculator()
         inputText = ""
         isResult = true
     }
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         showText("0")
     }
     
-    func Calculator () -> Float {
+    func calculator () -> Float {
         var floatResult: Float
         switch inputMath {
         case "+":
@@ -85,7 +85,6 @@ class ViewController: UIViewController {
             floatResult = saveValue / inputValue
         default:
             floatResult = inputValue
-            break
         }
         showValue(floatResult)
         return floatResult

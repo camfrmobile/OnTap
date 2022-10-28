@@ -24,6 +24,7 @@ print(array)
 
 // tìm phần tử
 var index = -1
+
 for j in i..<n {
     if array[j] > array[i-1] {
         index = j

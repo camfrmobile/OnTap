@@ -19,9 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     var timer: Timer?
-    let timeGreen = 5
+    let timeGreen = 7
     let timeYellow = 3
-    let timeRed = 7
+    let timeRed = 5
     var isRun = false
     
     override func viewDidLoad() {
@@ -34,12 +34,15 @@ class ViewController: UIViewController {
     func setupUI() {
         greenButton.clipsToBounds = true
         greenButton.layer.cornerRadius = greenButton.frame.width / 2
+        greenButton.setTitle("", for: .normal)
         
         yellowButton.clipsToBounds = true
         yellowButton.layer.cornerRadius = yellowButton.frame.width / 2
+        yellowButton.setTitle("", for: .normal)
         
         redButton.clipsToBounds = true
         redButton.layer.cornerRadius = redButton.frame.width / 2
+        redButton.setTitle("", for: .normal)
         
         turnOffAll()
     }
